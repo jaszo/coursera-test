@@ -18,23 +18,11 @@
     <div class="form-group narrow-button">
       <button class="btn btn-primary" ng-click='menu.narrowItDownForMe(searchTerm)'>Narrow It Down For Me!</button>
     </div>
-    <!-- <div>
-
-      <ol>
-        <li ng-repeat="foundItem in menu.found">
-          {{ foundItem.short_name }}, {{ foundItem.name }}, {{ foundItem.description }} -->
-          <!--<button ng-click="menu.onRemove({index: $index});">Remove Item</button>-->
-       <!-- </li>
-      </ol>
-    </div> -->
-
-
-    <!-- Bonus loader (see Bonus section of the assignment) -->
-    <!--<items-loader-indicator></items-loader-indicator>-->
 
     <!-- found-items should be implemented as a component -->
-    <!-- <found-items found-items="menu.found" title="menu.title" on-remove="menu.removeItem(index)"></found-items> -->
-    <found-items items="menu.found" on-remove="menu.removeItem(index)"></found-items>
+    <div class="float-items">
+      <found-items items="menu.found" on-remove="menu.removeItem(index)"></found-items>
+    </div>
     <div class="error" ng-if="menu.nothingFound">Nothing found!</div>
   </div>
 

@@ -5,6 +5,9 @@ input[type="text"] {
   width: 200px;
   float: left;
 }
+.float-items {
+  clear: both;
+}
 .narrow-button {
   float: left;
   margin-left: 10px;
