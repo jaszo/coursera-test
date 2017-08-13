@@ -1,0 +1,57 @@
+
+<div class="container">
+  <h2 id="signup-title" class="text-center">My Info!</h2>
+
+  <!-- form -->
+  <div ng-if="vm.isRegistered">
+    <form class="form-horizontal" name="signupForm" novalidate>
+      <div class="form-group">
+        <label for="firstname" class="col-sm-offset-2 col-sm-2 control-label">First Name</label>
+        <div class="col-sm-4">
+          <input type="text" class="form-control" id="firstname" name="firstname" placeholder="Enter Your First Name"
+          ng-model="vm.user.firstname" disabled required>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="lastname" class="col-sm-offset-2 col-sm-2 control-label">Last Name</label>
+        <div class="col-sm-4">
+          <input type="text" class="form-control" id="lastname" name="lastname" placeholder="Enter Your Last Name"
+          ng-model="vm.user.lastname" disabled required>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="email" class="col-sm-offset-2 col-sm-2 control-label">Email</label>
+        <div class="col-sm-4">
+          <input type="email" class="form-control" id="email" name="email" placeholder="Enter Your Email"
+          ng-model="vm.user.email" disabled required>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="phone" class="col-sm-offset-2 col-sm-2 control-label">Phone Number</label>
+        <div class="col-sm-4">
+          <input type="tel" class="form-control" id="phone" name="phone" placeholder="Enter Your Phone Number"
+          ng-model="vm.user.phone" disabled required>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="favoriteDish" class="col-sm-offset-2 col-sm-2 control-label">Favorite Dish</label>
+        <div class="col-sm-4">
+          <input type="text" class="form-control" id="favoriteDish" name="favoriteDish" placeholder="Enter Your Favorite Dish"
+          ng-model="vm.user.favoriteDish" disabled>
+        </div>
+      </div>
+    </form>
+    <div class="col-xs-12 col-sm-6 col-sm-offset-3 text-center">
+      <div class="menu-item-description">
+        <img class="img-responsive" style="display: inline-block; margin: 5px" ng-src="{{vm.user.itemlink}}" alt="{{vm.user.name}}">
+        <h3 class="menu-item-title">{{vm.user.name}}</h3>
+        <p class="menu-item-details">{{vm.user.description}}</p>
+      </div>
+    </div>
+  </div>
+
+  <div ng-if="!vm.isRegistered">
+    <h3 class="text-center">Not Signed Up Yet. <a ui-sref="public.signup">Sign Up Now!</a></h3>
+  </div>
+
+</div>

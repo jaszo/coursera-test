@@ -4,14 +4,26 @@
 angular.module('common')
 .service('SignupService', SignupService);
 
-SignupService.$inject = ['$http', 'ApiPath'];
-function SignupService($http, ApiPath) {
+SignupService.$inject = ['$http', 'ApiPath', '$q', 'MenuService'];
+function SignupService($http, ApiPath, $q, MenuService) {
   var service = this;
-
-  service.getMenuItem = function (menuItem) {
-    return $http.get(ApiPath + '/menu_items/' + menuItem + '.json').then(function (response) {
-      return response.data;
+  var user = {};
+  service.signup = function(_user) { // _user arrives from controller
+    var deferred = $q.defer();
+    MenuService.getMenuItem(_user.favoriteDish).then(function(menuItem) {
+      user = _user;
+      user.name = menuItem.name;
+      user.description = menuItem.description;
+      user.itemlink = ApiPath + '/images/' + menuItem.short_name + '.jpg'
+      deferred.resolve("Your information has been saved");
+    }).catch(function (err){
+      deferred.reject("No such menu number exists");
     });
+    return deferred.promise;
+  }
+
+  service.getUser = function() {
+    return user;
   }
 }
 })();
