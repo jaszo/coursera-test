@@ -1,0 +1,52 @@
+<div class="container">
+  <h2 id="signup-title" class="text-center">Signup for Newsletter!</h2>
+
+  <!-- form -->
+  <div>
+    <form class="form-horizontal" name="signupForm" ng-submit="signupCtrl.submitSignup(yourSignup.favoriteDish)" novalidate>
+      <div class="form-group" ng-class="{ 'has-error' : signupForm.firstname.$error.required && !signupForm.firstname.$pristine }">
+        <label for="firstname" class="col-sm-offset-2 col-sm-2 control-label">First Name</label>
+        <div class="col-sm-4">
+          <input type="text" class="form-control" id="firstname" name="firstname" placeholder="Enter Your First Name"
+          ng-model="yourSignup.firstname" required>
+          <span ng-show="signupForm.firstname.$error.required && !sigupForm.firstname.$pristine" class="help-block">Your first name is required.</span>
+        </div>
+      </div>
+      <div class="form-group" ng-class="{ 'has-error' : signupForm.lastname.$error.required && !signupForm.lastname.$pristine }">
+        <label for="lastname" class="col-sm-offset-2 col-sm-2 control-label">Last Name</label>
+        <div class="col-sm-4">
+          <input type="text" class="form-control" id="lastname" name="lastname" placeholder="Enter Your Last Name"
+          ng-model="yourSignup.lastname" required>
+          <span ng-show="signupForm.lastname.$error.required && !sigupForm.lastname.$pristine" class="help-block">Your last name is required.</span>
+        </div>
+      </div>
+      <div class="form-group" ng-class="{ 'has-error' : signupForm.email.$error.required && !signupForm.email.$pristine }">
+        <label for="email" class="col-sm-offset-2 col-sm-2 control-label">Email</label>
+        <div class="col-sm-4">
+          <input type="email" class="form-control" id="email" name="email" placeholder="Enter Your Email"
+          ng-model="yourSignup.email" required>
+          <span ng-show="signupForm.email.$error.required && !sigupForm.email.$pristine" class="help-block">Your email is required.</span>
+        </div>
+      </div>
+      <div class="form-group" ng-class="{ 'has-error' : signupForm.phone.$error.required && !signupForm.phone.$pristine }">
+        <label for="phone" class="col-sm-offset-2 col-sm-2 control-label">Phone Number</label>
+        <div class="col-sm-4">
+          <input type="tel" class="form-control" id="phone" name="phone" placeholder="Enter Your Phone Number"
+          ng-model="yourSignup.phone" required>
+          <span ng-show="signupForm.phone.$error.required && !sigupForm.phone.$pristine" class="help-block">Your phone number is required.</span>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="favoriteDish" class="col-sm-offset-2 col-sm-2 control-label">Favorite Dish</label>
+        <div class="col-sm-4">
+          <input type="text" class="form-control" id="favoriteDish" name="favoriteDish" placeholder="Enter Your Favorite Dish"
+          ng-model="yourSignup.favoriteDish">
+        </div>
+      </div>
+      <div class="form-group">
+          <div class="col-sm-offset-4 col-sm-10">
+              <button type="submit" class="btn btn-primary" ng-disabled="signupForm.$invalid">Sigup To Newsletter</button>
+          </div>
+      </div>
+    </form>
+</div>
